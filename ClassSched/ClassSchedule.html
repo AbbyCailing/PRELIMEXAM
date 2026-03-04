@@ -4,7 +4,97 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weekly Class Schedule</title>
-    <link rel="stylesheet" href="./Classschedule.css">
+    <style>
+     /* ===== Body ===== */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+/* ===== Header ===== */
+.site-header {
+    text-align: center;
+    background: #3f2d63;
+    color: white;
+    padding: 20px;
+}
+
+/* Navigation */
+.site-nav ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.site-nav li {
+    display: inline;
+    margin: 0 12px;
+}
+
+.site-nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+}
+
+.site-nav a::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    width: 0%;
+    height: 2px;
+    background-color: white;
+    transition: width 0.3s ease;
+}
+
+.site-nav a:hover::after {
+    width: 100%;
+}
+
+/* ===== Schedule Container ===== */
+#schedule-container {
+    width: 95%;
+    margin: 20px auto;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+/* Header */
+th {
+    background-color: #3f2d63;
+    color: white;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+/* Cells */
+td {
+    border: 1px solid #ccc;
+    padding: 12px;
+
+}
+
+/* Subject Column (dark purple) */
+td.subject-name {
+    background-color: #3f2d63;
+    color: white;
+    font-weight: bold;
+}
+
+/* Light purple for all non-subject cells */
+td:not(.subject-name) {
+    background-color: #b79ce8;
+    color: #000;  /* text readable */
+    font-weight: bold;
+}   
+    </style>
 </head>
 
 <body>
