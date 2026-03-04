@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abegail Cailing Portfolio</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  /* Root Variables */
+:root {
+  --violet: #3f2d63;
+}
+
+/* Universal Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Body */
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 1.6;
+  background: #f4f4f4;
+  color: #333;
+}
+
+/* Links */
+a {
+  color: var(--violet);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 12px;
+  padding: 10px 12px;
+  border: 1px solid #111;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.skip-link:focus {
+  left: 12px;
+}
+
+/* Container */
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 24px;
+}
+
+/* Header */
+.site-header {
+  background: #3f2d63;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.site-title {
+  margin-bottom: 6px;
+}
+
+.site-tagline {
+  color: #3f2d63;
+}
+
+/* Navigation */
+.site-nav ul {
+  list-style: none;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.site-nav a {
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: #3f2d63;
+  color: white;
+}
+
+/* Layout */
+.layout {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+/* Child Selector */
+.layout > main,
+.layout > aside {
+  flex: 3;
+  min-width: 0;
+}
+
+.layout > aside,
+.sidebar {
+  flex: 1;
+  background: white;
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+  padding: 18px;
+}
+
+/* Posts */
+.post-list,
+.posts {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Descendant Selector */
+.posts article p {
+  color: #444;
+  background: white;
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+  padding: 18px;
+}
+
+/* Adjacent Sibling Selector */
+.post h2 + p {
+  font-weight: bold;
+}
+
+/* General Sibling Selector */
+.post h2 ~ .chip {
+  background: #efeaf7;
+  color: var(--violet);
+  padding: 3px 8px;
+  border-radius: 12px;
+  margin-right: 4px;
+  display: inline-block;
+}
+
+.post-meta {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.post-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Chips / Tags */
+.chip {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #efeaf7;
+  font-size: 0.9rem;
+  color: var(--violet);
+  margin-right: 6px;
+  margin-top: 6px;
+}
+
+/* Sidebar */
+.sidebar section {
+  margin-bottom: 20px;
+}
+
+.sidebar ul {
+  padding-left: 18px;
+}
+
+.sidebar section:first-of-type {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.widget {
+  margin-bottom: 18px;
+}
+
+.widget h3 {
+  margin-bottom: 8px;
+  color: #3f2d63;
+}
+
+#about-title,
+.widget p {
+  color: black; 
+}
+
+/* Forms */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+input[type="email"] {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+button {
+  padding: 10px 12px;
+  border: none;
+  border-radius: 6px;
+  background: #3f2d63;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/* Footer */
+.site-footer,
+footer {
+  text-align: center;
+  background: var(--violet);
+  color: white;
+  padding: 15px;
+  margin-top: 24px;
+  border-radius: 8px;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.footer-links a {
+  color: white;
+}
+
+/* Interactive Design */
+@media (max-width: 900px) {
+  .layout {
+    flex-direction: column;
+  }
+
+  .site-nav ul {
+    flex-direction: column;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <header class="site-header">
+    <h1>ABBYS PORTFOLIO</h1>
+    <p>BSIT Student • Hobbies • Creative Learner • Future Web Developer</p>
+
+    <nav class="site-nav">
+      <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="#">Article</a></li>
+</li>
+        <li>
+  <a href="./StudID/StudentID.html" target="_blank">
+    StudentCard
+  </a>
+</li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="layout">
+
+    <main>
+      <section class="posts">
+
+
+        <article class="post">
+  <h2>Building an Interactive Valentine's Card Web App</h2>
+  <p class="post-meta">Feb 14, 2026 • 59 min read</p>
+  <p style="text-align: justify;">
+    For this project, I created an interactive Valentine themed web application using HTML, CSS, and JavaScript. The goal was to design something visually appealing while also practicing layout structure, styling, and user interaction. 
+  </p>
+<span class="chip">HTML</span>
+<span class="chip">CSS</span>
+<span class="chip">JavaScript</span>
+  <a href="./ValCard/ValCard.html" target="_blank" aria-label="ValenCard Project">ValenCard</a>
+</article>
+
+
+<article class="post">
+  <h2>College Journey</h2>
+  <p class="post-meta">Jan 31, 2026 • 2 weeks ago</p>
+  <p style="text-align: justify;">
+    My college journey has been a path of exploration and growth. I began in the Computer Science department, where I discovered my interest in programming, and later shifted to the BS Information Technology program to better align with my goals.
+  </p>
+  <span class="chip">Learning</span>
+  <a href="./SemanticBlogL/SemanticBlogL.html" target="_blank">Blog</a>
+</article>
+
+       <article class="post">
+  <h2>Creating a Time Table</h2>
+  <p class="post-meta">Feb 7, 2026 • 1 week ago</p>
+  <p>
+    I built a weekly class schedule using HTML and CSS, focusing on clear layout and styling to make days, times, and rooms easy to read. This helped me practice semantic tables and effective content alignment.
+  </p>
+<span class="chip">HTML</span>
+<span class="chip">CSS</span>
+  <a href="./ClassSched/ClassSchedule.html" target="_blank" aria-label="TimeTable Project">TimeTable</a>
+</article>
+      </section>
+    </main>
+
+    <aside class="sidebar">
+
+      <section class="widget" aria-labelledby="about-title">
+        <h3 id="about-title">About me</h3>
+        <p>
+          Hi! I am Abegail P. Cailing, 20 years old and a student of XU.
+        </p>
+      </section>
+
+      <section class="widget">
+        <h3>Categories</h3>
+        <ul>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Valentines Card</a></li>
+          <li><a href="#">Class Schedule</a></li>
+          <li><a href="#">Student ID</a></li>
+        </ul>
+      </section>
+
+      <section class="widget" aria-labelledby="newsletter-title">
+        <h3 id="newsletter-title">Newsletter</h3>
+        <p>Get one email when I publish a new post.</p>
+
+        <form action="#" method="post">
+          <div class="field">
+            <label for="email">Email address</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+          </div>
+          <div class="field">
+            <button type="submit">Subscribe</button>
+          </div>
+        </form>
+      </section>
+
+    </aside>
+
+  </div>
+
+  <footer class="site-footer">
+    <p>© 2026 Abbys Portfolio</p>
+    <ul class="footer-links">
+      <li><a href="#">Home</a></li>
+       <li>
+  <a href="./StudID/StudentID.html" target="_blank">
+    About
+  </a>
+</li>
+       <li>
+  <a href="./SemanticBlogL/SemanticBlogL.html" target="_blank">
+    Projects
+  </a>
+</li>
+    </ul>
+  </footer>
+
+</div>
+
+</body>
+</html>

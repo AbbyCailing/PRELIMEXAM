@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentine App</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.title, .subtitle, .message {
+    text-align: center;
+    font-family: 'Brush Script MT', cursive;
+    font-style: italic;
+}
+
+.title {
+    font-size: 50px;
+    color: #ff4f7b;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    line-height: 1.2;
+}
+
+.subtitle {
+    font-size: 42px;
+    font-weight: bold;
+    color: #ff4f7b;
+    margin-bottom: 20px;
+    letter-spacing: 1.5px;
+    line-height: 1.3;
+}
+
+.message {
+    font-size: 16px;
+    color: #5a3e36;
+    line-height: 1.8;
+    letter-spacing: 1px;
+}
+
+.frame {
+    border: 8px dotted #c49e76;
+    border-radius: 30px;
+    padding: 40px;
+    position: relative;
+    background: #f6e7c9;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    background-image:
+        radial-gradient(rgba(120,90,60,0.08) 1px, transparent 1px),
+        radial-gradient(rgba(120,90,60,0.05) 1px, transparent 1px),
+        linear-gradient(120deg, rgba(255,255,255,0.25), transparent 60%),
+        linear-gradient(-120deg, rgba(0,0,0,0.05), transparent 60%);
+    background-size:
+        3px 3px,
+        5px 5px,
+        100% 100%,
+        100% 100%;
+    background-blend-mode: multiply;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.card-content {
+    background-color: #fffaf0;
+    padding: 40px 30px;
+    border-radius: 25px;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.05);
+    width: 90%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image:
+        radial-gradient(rgba(200,160,120,0.05) 1px, transparent 1px),
+        linear-gradient(45deg, rgba(255,240,220,0.2) 25%, transparent 25%, transparent 50%, rgba(255,240,220,0.2) 50%, rgba(255,240,220,0.2) 75%, transparent 75%, transparent);
+    background-size: 20px 20px;
+}
+
+#cover {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    font-family: 'Brush Script MT', cursive;
+    background-color: #fff8f0;
+}
+
+.question {
+    font-size: 42px;
+    color: #ff4f7b;
+    margin-bottom: 40px;
+    text-shadow: 0 0 10px rgba(255,120,160,0.7), 0 0 20px rgba(255,120,160,0.5);
+    animation: floatText 2.5s ease-in-out infinite;
+}
+
+@keyframes floatText {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-12px); }
+    100% { transform: translateY(0); }
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+}
+
+button.yes, button.no {
+    font-family: 'Brush Script MT', cursive;
+    font-style: italic;
+    font-size: 24px;      
+    padding: 12px 28px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button.yes {
+    background: #ff6f91;
+    color: white;
+    box-shadow: 0 0 12px rgba(255,100,150,0.6);
+    animation: floatButton 2.5s ease-in-out infinite, glowPulse 2s ease-in-out infinite;
+}
+
+button.no {
+    background: #d6bfa7;
+    color: #5a3e36;
+}
+
+@keyframes glowPulse {
+    0%, 100% { box-shadow: 0 0 12px rgba(255,100,150,0.6); }
+    50% { box-shadow: 0 0 25px rgba(255,100,150,0.9); }
+}
+
+#cover, .frame {
+    transition: opacity 1s ease, transform 0.8s ease;
+}
+
+#cover.hidden {
+    opacity: 0;
+    transform: scale(0.95); 
+    pointer-events: none;
+}
+
+.frame.show {
+    display: flex;      
+    opacity: 0;
+    transform: scale(1.05); 
+    animation: fadeInCard 1s forwards;
+}
+
+@keyframes fadeInCard {
+    0% { opacity: 0; transform: scale(1.05); }
+    100% { opacity: 1; transform: scale(1); }
+}
+</style>
+</head>
+
+<body>
+<div id="cover">
+    <h1 class="question">Can you be my Valentine? 💌</h1>
+    <div class="buttons">
+        <button class="yes" id="yesBtn">Yes ❤️</button>
+        <button class="no" id="noBtn">No 🙈</button>
+    </div>
+</div>
+
+<div class="frame" id="card">
+    <div class="card">
+        <div class="decorative-top">｡ ₊°༺❤︎༻°₊ ｡</div>
+        <div class="card-content">
+            <div class="title">Happy</div>
+            <div class="subtitle">Valentine’s Day</div>
+            <div class="message">
+                The hardest feelings are those unspoken,<br>
+                longing for what cannot be.<br>
+                Yet even from afar,<br>
+                my heart quietly thinks of you this Valentine’s Day 𖹭.
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+const cover = document.getElementById("cover");
+const card = document.getElementById("card");
+const yesBtn = document.getElementById("yesBtn");
+const noBtn = document.getElementById("noBtn");
+
+let yesScale = 1;
+
+yesBtn.addEventListener("click", () => {
+    cover.classList.add("hidden");
+    card.classList.add("show");
+});
+
+noBtn.addEventListener("mouseover", () => {
+    const x = Math.random() * 300 - 150;
+    const y = Math.random() * 200 - 100;
+    noBtn.style.transform = `translate(${x}px, ${y}px)`;
+
+    yesScale += 0.25;
+    yesBtn.style.transform = `scale(${yesScale})`;
+});
+
+noBtn.addEventListener("click", () => {
+    yesBtn.click();
+});
+</script>
+</body>
+</html>
+
+<!-- 
+Reflection:
+1. I used chatgpt ai for help.
+2. It helped me design this valentines card.
+3. I modified colors, sizes and where I put the emoje text to inline with the message to have a heart emoje at the end of the message.
+4. I learn how to modify sizes on where I want my text and emoje will be put in the padding. I also learned that its possible to put a transition on this. Additionally, because of this activity I learned that their are emojes and borders online that u can just copy paste their design and it will be inputted according to their appearance
+-->

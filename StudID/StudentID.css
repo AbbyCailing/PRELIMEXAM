@@ -1,0 +1,60 @@
+body {
+  margin: 99;
+  font-family: Arial, sans-serif;
+ 
+}
+
+/* ===== Header ===== */
+.site-header {
+  text-align: center;
+  background: #3f2d63;
+  color: white;
+  padding: 20px;
+}
+
+.site-nav ul {
+  margin-top: 10px;
+}
+
+.site-nav li {
+  display: inline;
+  margin: 0 12px;
+}
+
+.site-nav a {
+  color: white;
+  font-weight: bold;
+}
+
+/* Links */
+.site-nav a {
+  color: white;
+  font-weight: bold;
+  position: relative;
+}
+
+/* UNDERLINE EFFECT */
+.site-nav a::after {
+  position: absolute;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+
+/* Hover animation */
+.site-nav a:hover::after {
+  width: 100%;
+}
+
+/* ===== Card ===== */
+.card {
+  background-color: white;
+  width: 800px;
+  margin: 30px auto;
+  padding: 100px;
+  border-radius: 20px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  text-align: center;
+}
